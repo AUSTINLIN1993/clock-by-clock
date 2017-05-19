@@ -15,7 +15,7 @@ var NUM_WID = WINDOW_WIDTH/7.1;
 var ICON_WID =WINDOW_WIDTH/12.875;
 var BLAN_BALL = WINDOW_WIDTH/51.5;
 
-const endTime = new Date(2017,4,19,15,23,44);
+// const endTime = new Date(2017,4,19,15,23,44);
 var timeSeconds = 0;
 var lastHours;
 var lastMinutes;
@@ -147,7 +147,9 @@ function addBallList(x,y,val){
 
 function getTimeSeconds(){
 	var nowTime = new Date();
-	var ret = endTime.getTime()-nowTime.getTime();
+	var lastDay = new Date(nowTime.getFullYear(),nowTime.getMonth(),nowTime.getDate());
+	// var ret = endTime.getTime()-nowTime.getTime();
+	var ret = nowTime.getTime()-lastDay.getTime();
 	ret = Math.round(ret/1000);
 	return ret >= 0? ret:0;
 }
